@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUI CRUD Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-cube"></i> JOSH</h1>
+      </div>
+      <div class="header-right">
+        <div class="notifications">
+          <span class="badge">4</span>
+          <i class="fas fa-bell"></i>
+        </div>
+        <div class="messages">
+          <span class="badge">7</span>
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="user-profile">
+          <span class="user-name">John Doe</span>
+          <div class="avatar">
+             <img src="assets/avatar.png" alt="Avatar" />
+          </div>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="page-header">
+        <h2>GUI CRUD Generator</h2>
+        <div class="breadcrumbs">
+          <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+          <span class="separator">›</span>
+          <a href="#">GUI CRUD Generator</a>
+          <span class="separator">›</span>
+          <span>Generator Builder</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Laravel Generator Builder</h3>
+        </div>
+        <div class="panel-body">
+          <form id="generator-form">
+            <div class="form-section">
+              <div class="form-group required">
+                <label for="model-name">Model Name</label>
+                <input type="text" id="model-name" class="form-control" placeholder="Enter model name" value="School" required>
+              </div>
+
+              <div class="form-group">
+                <label for="command-type">Command Type</label>
+                <div class="custom-select">
+                  <select id="command-type" class="form-control">
+                    <option selected>Scaffold Generator</option>
+                    <option>API Generator</option>
+                    <option>CRUD Generator</option>
+                  </select>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="table-name">Table Name</label>
+                <input type="text" id="table-name" class="form-control" placeholder="Enter table name" value="schools">
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-group options-group">
+                <label>Options</label>
+                <div class="checkbox-group">
+                  <label class="checkbox">
+                    <input type="checkbox" name="soft-delete">
+                    <span class="checkbox-custom"></span>
+                    Soft Delete
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="datatables">
+                    <span class="checkbox-custom"></span>
+                    Datatables
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="migrate" >
+                    <span class="checkbox-custom"></span>
+                    Migrate
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="prefix">Prefix</label>
+                <input type="text" id="prefix" class="form-control" placeholder="Enter prefix">
+              </div>
+
+              <div class="form-group">
+                <label for="paginate">Paginate</label>
+                <input type="number" id="paginate" class="form-control" value="10">
+              </div>
+            </div>
+
+            <div class="info-panel">
+              <i class="fas fa-info-circle"></i>
+              The Primary key <code>id</code> and timestamps <code>created_at</code> and <code>updated_at</code> will be created automatically!
+            </div>
+
+            <div class="table-responsive">
+              <table class="fields-table">
+                <thead>
+                  <tr>
+                    <th>Field Name</th>
+                    <th>DB Type</th>
+                    <th>Validations</th>
+                    <th>Html Type</th>
+                    <th class="center-align">Primary</th>
+                    <th class="center-align">Searchable</th>
+                    <th class="center-align">Fillable</th>
+                    <th class="center-align">In Form</th>
+                    <th class="center-align">In Index</th>
+                    <th class="center-align">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control" value="Student">
+                    </td>
+                    <td>
+                      <div class="custom-select">
+                        <select class="form-control">
+                          <option selected>STRING</option>
+                          <option>INTEGER</option>
+                          <option>TEXT</option>
+                          <option>DATE</option>
+                          <option>BOOLEAN</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </td>
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <div class="custom-select">
+                        <select class="form-control">
+                          <option selected>Text</option>
+                          <option>Textarea</option>
+                          <option>Select</option>
+                          <option>Checkbox</option>
+                          <option>Radio</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <button type="button" class="btn-icon delete">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control" value="Roll">
+                    </td>
+                    <td>
+                      <div class="custom-select">
+                        <select class="form-control">
+                          <option>STRING</option>
+                          <option selected>INTEGER</option>
+                          <option>TEXT</option>
+                          <option>DATE</option>
+                          <option>BOOLEAN</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </td>
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <div class="custom-select">
+                        <select class="form-control">
+                          <option selected>Text</option>
+                          <option>Textarea</option>
+                          <option>Select</option>
+                          <option>Checkbox</option>
+                          <option>Radio</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <button type="button" class="btn-icon delete">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control" value="Gender">
+                    </td>
+                    <td>
+                      <div class="custom-select">
+                        <select class="form-control">
+                          <option>STRING</option>
+                          <option>INTEGER</option>
+                          <option>TEXT</option>
+                          <option>DATE</option>
+                          <option selected>ENUM</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </td>
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <div class="custom-select">
+                        <select class="form-control">
+                          <option>Text</option>
+                          <option>Textarea</option>
+                          <option>Select</option>
+                          <option>Checkbox</option>
+                          <option selected>Radio</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                      </div>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <label class="checkbox">
+                        <input type="checkbox" >
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </td>
+                    <td class="center-align">
+                      <button type="button" class="btn-icon delete">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary add-field">
+                <i class="fas fa-plus"></i> Add Field
+              </button>
+              <div class="right-actions">
+                <button type="button" class="btn btn-success generate">
+                  <i class="fas fa-cog"></i> Generate
+                </button>
+                <button type="reset" class="btn btn-danger reset">
+                  <i class="fas fa-undo"></i> Reset
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
